@@ -1,0 +1,14 @@
+<div class="list-wrapper">
+    <div *ngFor="let game of games" class="list-item">
+        <div class="img">
+            <img src="{{game.imgPath}}" alt="Image not provided">
+        </div>
+        <div class="info">
+            <div class="title">{{game.title}}</div>
+            <div class="description">{{game.description}}</div>
+            <div class="footer">
+                {{game.price | currency}}
+            </div>
+        </div>
+    </div>
+</div>
