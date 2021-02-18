@@ -3,7 +3,7 @@ import { Game } from 'src/app/models';
 import { GameService } from 'src/app/services/game.service';
 
 @Component({
-  selector: 'app-game-list',
+  selector: 'gs-game-list',
   templateUrl: './game-list.component.html',
   styleUrls: ['./game-list.component.scss']
 })
