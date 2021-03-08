@@ -3,14 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GameListComponent } from './components/game-list/game-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameListComponent
+    GameListComponent,
+    HeaderComponent,
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
