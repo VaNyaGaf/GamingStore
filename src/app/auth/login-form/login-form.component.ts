@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserLoginModel } from '../models';
 
 @Component({
   selector: 'gs-login-form',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
+  public passMinLength = 8;
+  public user: UserLoginModel = {
+    email: '',
+    password: '',
+  };
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public logInUser() {
+    console.log(this.user);
   }
 
 }

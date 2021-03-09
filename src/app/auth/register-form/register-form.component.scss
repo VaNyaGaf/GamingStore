@@ -1,4 +1,4 @@
-$button: rgba(148,186,101,0.7);
+$button: rgba(146, 192, 90, 0.7);
 
 
 form {
@@ -8,6 +8,7 @@ form {
     margin: 50px auto 0;
     box-shadow: 0 0 1em #222;
     border-radius: 2px;
+
     h2 {
       margin:0 0 50px 0;
       padding:10px;
@@ -16,10 +17,12 @@ form {
       color:darken(#e5e5e5, 50%);
       border-bottom:solid 1px #e5e5e5;
     }
+
     p {
       margin: 0 0 3em 0;
       position: relative;
     }
+
     input {
       display: block;
       box-sizing: border-box;
@@ -27,6 +30,7 @@ form {
       outline: none;
       margin:0;
     }
+
     input[type="text"],
     input[type="password"] {
       background: #fff;
@@ -39,12 +43,11 @@ form {
     input[type="password"]:focus {
       background: #fff
     }
-    span {
-      display:block;
-      background: #F9A5A5;
-      padding: 2px 5px;
-      color: #666;
+    small {
+      margin-left: 1em;
+      color: rgb(250, 67, 67);
     }
+
     input[type="submit"] {
       background: $button;
       box-shadow: 0 3px 0 0 darken($button, 10%);
@@ -64,6 +67,18 @@ form {
       background: rgba(148,175,101,1);
       text-shadow:0 1px 3px darken($button, 30%);
     }
+    input[type="submit"].disabled {
+      cursor: auto;
+      background-color: #ddd;
+      box-shadow: none;
+      text-shadow: none;
+    }
+    input[type="submit"].disabled:hover {
+      cursor: auto;
+      background-color: #ddd;
+      text-shadow: none;
+    }
+
 
     label{
       position: absolute;
