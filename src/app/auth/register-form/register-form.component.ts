@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services';
 import { UserRegisterModel } from '../models';
 
 @Component({
@@ -17,12 +18,13 @@ export class RegisterFormComponent implements OnInit {
     confirmedPassword: '',
   };
 
-  constructor() { }
+  constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   public registerUser() {
-    console.log(this.user)
+    this._authService.register(this.user)
+      .subscribe(res => console.log(res));
   }
 }

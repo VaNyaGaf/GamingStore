@@ -5,7 +5,6 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
     AuthRoutingModule,
     FormsModule,
     SharedModule,
-    HttpClientModule,
   ],
   exports: [
     RegisterFormComponent,
