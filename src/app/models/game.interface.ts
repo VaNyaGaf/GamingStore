@@ -4,4 +4,5 @@ export interface Game {
     publishDate: Date;
     price: number;
     imgPath?: string;
+    publisherId: string;
 }
