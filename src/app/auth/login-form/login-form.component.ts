@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services';
 import { UserLoginModel } from '../models';
 
@@ -15,14 +16,16 @@ export class LoginFormComponent implements OnInit {
     password: '',
   };
 
-  constructor(private _authService: AuthService) { }
+  constructor(
+    private _authService: AuthService,
+    private _router: Router) { }
 
   ngOnInit(): void {
   }
 
   public logInUser() {
     this._authService.login(this.user)
-      .subscribe(res => console.log(res));
+      .subscribe(_ => this._router.navigateByUrl('/games'));
   }
 
 }

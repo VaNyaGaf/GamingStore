@@ -24,7 +24,7 @@ export class JwtTokenService {
     const payload = this.getDecodedPayload();
     
     if (!payload) {
-      return false;
+      return true;
     }
 
     return new Date() >= payload.exp

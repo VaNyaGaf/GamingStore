@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services';
 
 @Component({
   selector: 'gs-header',
@@ -7,8 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authService: AuthService, private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public isLogedIn(): Observable<boolean> {
+    return this._authService.isLoggedIn();
+  }
+
+  public logOut(): void {
+    this._authService.logout();
+    this._router.navigateByUrl('/auth/login')
   }
 }

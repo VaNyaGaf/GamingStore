@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserLoginModel, UserRegisterModel } from '../auth/models';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators'
 import { User } from '../models';
 import { JwtTokenService } from './jwt-token.service';
@@ -11,7 +11,8 @@ import { JwtTokenService } from './jwt-token.service';
   providedIn: 'root'
 })
 export class AuthService {
-  readonly URL_BASE = environment.backendUrl
+  private readonly _subject$ = new BehaviorSubject(this._isLoggedIn());
+  private readonly URL_BASE = environment.backendUrl
 
   constructor(
     private _http: HttpClient,
@@ -27,12 +28,24 @@ export class AuthService {
   public login(loginModel: UserLoginModel): Observable<{token: string, user: User}> {
     const loginUrl = `${this.URL_BASE}/api/auth/sign-in`;
     return this._http.post<{token: string, user: User}>(loginUrl, loginModel).pipe(
-      tap(response => this._tokenService.setToken(response.token))
+      tap(response => {
+        this._tokenService.setToken(response.token);
+        this._subject$.next(true);
+      })
     );
+  }
+
+  public isLoggedIn(): Observable<boolean> {
+    return this._subject$.asObservable();
+  }
+
+  private _isLoggedIn(): boolean {
+    return !this._tokenService.isExpired();
   }
 
   public logout() {
     this._tokenService.removeToken();
+    this._subject$.next(false);
   }
 }
 

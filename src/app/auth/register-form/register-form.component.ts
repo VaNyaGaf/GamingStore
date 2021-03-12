@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services';
 import { UserRegisterModel } from '../models';
 
@@ -18,13 +19,15 @@ export class RegisterFormComponent implements OnInit {
     confirmedPassword: '',
   };
 
-  constructor(private _authService: AuthService) { }
+  constructor(
+    private _authService: AuthService,
+    private _router: Router) { }
 
   ngOnInit(): void {
   }
 
   public registerUser() {
     this._authService.register(this.user)
-      .subscribe(res => console.log(res));
+      .subscribe(_ => this._router.navigateByUrl('/games'));
   }
 }

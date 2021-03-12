@@ -1,8 +1,9 @@
 <div class="header-wrapper">
     <div class="navigation topnav">
         <a class="active" routerLink='games'>Games</a>
-        <a>News</a>
-        <a routerLink="auth/login">Log In</a>
+        <a>Create</a>
+        <a *ngIf="!(isLogedIn() | async)" routerLink="auth/login">Log In</a>
         <a routerLink="auth/register">Register</a>
+        <a *ngIf="isLogedIn() | async" (click)="logOut()">Log out</a>
     </div>
 </div>
