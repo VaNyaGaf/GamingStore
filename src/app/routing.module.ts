@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { CreateGameComponent } from './components/create-game/create-game.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { CreatePublisherComponent } from './components/create-publisher/create-publisher.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: 'create-game',
     component: CreateGameComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'create-publisher',
+    component: CreatePublisherComponent,
     canActivate: [AuthGuard]
   },
   {
