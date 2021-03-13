@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { CreateGameComponent } from './components/create-game/create-game.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   {
     path: 'create-game',
     component: CreateGameComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'auth',
