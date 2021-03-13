@@ -1,9 +1,19 @@
 <div class="header-wrapper">
     <div class="navigation topnav">
         <a class="active" routerLink='games'>Games</a>
-        <a routerLink="create-game">Create</a>
-        <a *ngIf="!(isLogedIn() | async)" routerLink="auth/login">Log In</a>
-        <a routerLink="auth/register">Register</a>
-        <a *ngIf="isLogedIn() | async" (click)="logOut()">Log out</a>
+        <div class="dropdown">
+            <button class="dropbtn">Create
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a routerLink="create-game">Game</a>
+                <a routerLink="create-game">Publisher</a>
+            </div>
+        </div>
+        <div class="auth-buttons">
+            <a *ngIf="!(isLogedIn() | async)" routerLink="auth/login">Log In</a>
+            <a *ngIf="!(isLogedIn() | async)" routerLink="auth/register">Register</a>
+            <a *ngIf="isLogedIn() | async" (click)="logOut()">Log out</a>
+        </div>
     </div>
 </div>
