@@ -16,4 +16,11 @@ export class GameListComponent implements OnInit {
   ngOnInit(): void {
     this.gameService.getGames().subscribe(value => this.games = value);
   }
+
+  onSortOptionChange(event) {
+    const value = event.target.value;
+    this.games.sort((left, right) => {
+      return left[value] < right[value] ? 1 : -1;
+    })
+  }
 }
