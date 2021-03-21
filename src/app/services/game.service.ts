@@ -28,7 +28,7 @@ export class GameService {
           'a megalopolis obsessed with power, glamour and body modification. You play as V, '+
           'a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.',
           price: 59.99,
-          publishDate: new Date(2020, 11, 10),
+          publishDate: new Date(2020, 6, 19),
           imgPath: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/TLOU_P2_Box_Art_2.png/220px-TLOU_P2_Box_Art_2.png'
       },
       {
@@ -38,7 +38,7 @@ export class GameService {
           'a megalopolis obsessed with power, glamour and body modification. You play as V, '+
           'a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.',
           price: 45,
-          publishDate: new Date(2020, 11, 10),
+          publishDate: new Date(2020, 7, 17),
           imgPath: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Ghost_of_Tsushima.jpg/220px-Ghost_of_Tsushima.jpg'
       },
       {
@@ -48,7 +48,7 @@ export class GameService {
           'a megalopolis obsessed with power, glamour and body modification. You play as V, '+
           'a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.',
           price: 35,
-          publishDate: new Date(2020, 11, 10),
+          publishDate: new Date(2020, 3, 20),
           imgPath: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Cover_Art_of_Doom_Eternal.png/220px-Cover_Art_of_Doom_Eternal.png'
       },
       {
@@ -58,7 +58,7 @@ export class GameService {
           'a megalopolis obsessed with power, glamour and body modification. You play as V, '+
           'a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.',
           price: 49.99,
-          publishDate: new Date(2020, 11, 10),
+          publishDate: new Date(2020, 4, 3),
           imgPath: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Resident_Evil_3.jpg/220px-Resident_Evil_3.jpg'
       },
     ] as Game[])

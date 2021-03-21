@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Game } from 'src/app/models';
-import { GameService } from 'src/app/services/game.service';
+import { GameListState } from './store/game-list-state.interface';
+import { loadGames, setSortingCriteria } from './store/game-list.actions';
+import { gamesSelector, sortingCriteriaSelector } from './store/game-list.selectors';
 
 @Component({
   selector: 'gs-game-list',
@@ -9,18 +13,18 @@ import { GameService } from 'src/app/services/game.service';
 })
 export class GameListComponent implements OnInit {
 
-  public games: Game[];
+  public sortingCriteria$: Observable<string> = this.store.select(sortingCriteriaSelector);
+  public games$: Observable<Game[]> = this.store.select(gamesSelector);
 
-  constructor(private gameService: GameService) { }
+  constructor(
+    private store: Store<GameListState>) { }
 
   ngOnInit(): void {
-    this.gameService.getGames().subscribe(value => this.games = value);
+    this.store.dispatch(loadGames());
   }
 
   onSortOptionChange(event) {
     const value = event.target.value;
-    this.games.sort((left, right) => {
-      return left[value] < right[value] ? 1 : -1;
-    })
+    this.store.dispatch(setSortingCriteria({ sortCriteria: value }));
   }
 }

@@ -6,14 +6,36 @@
                 id='sorting-fields'
                 (change)='onSortOptionChange($event)'
             >
-                <option value="" selected disabled hidden>Choose here</option>
-                <option value="title">Name</option>
-                <option value="price">Price</option>
-                <option value="publishDate">Date</option>
+                <option
+                    value="" 
+                    [selected]="(sortingCriteria$ | async) === ''"
+                    disabled
+                    hidden
+                >
+                    Choose here
+                </option>
+                <option 
+                    value="title" 
+                    [selected]="(sortingCriteria$ | async) === 'title'"
+                >
+                    Name
+                </option>
+                <option
+                    value="price"
+                    [selected]="(sortingCriteria$ | async) === 'price'"
+                >
+                    Price
+                </option>
+                <option
+                    value="publishDate"
+                    [selected]="(sortingCriteria$ | async) === 'publishDate'"
+                >
+                    Date
+                </option>
             </select> 
         </div>
     </div>
-    <div *ngFor="let game of games" class="list-item">
+    <div *ngFor="let game of games$ | async" class="list-item">
         <div class="img">
             <img src="{{game.imgPath}}" alt="Image not provided">
         </div>
